@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220dp"
+    android:layout_height="300dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginLeft="20dp"
+    app:cardBackgroundColor="#BB86FF"
+    app:cardCornerRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="300dp">
+
+
+        <TextView
+            android:id="@+id/goalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Goal Name"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/goalBal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="200dp"
+            android:text="$Balance"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/goalCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="$Cost"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignTop="@id/goalBal"
+            android:layout_toRightOf="@id/goalBal"
+            android:layout_toEndOf="@id/goalBal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="/"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignTop="@id/goalBal"
+            android:layout_toRightOf="@id/goalBal"
+            android:layout_toEndOf="@id/goalBal"/>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
