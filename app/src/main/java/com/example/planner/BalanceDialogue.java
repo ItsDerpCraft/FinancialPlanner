@@ -33,7 +33,8 @@ public class BalanceDialogue extends DialogFragment {
     private Double balance;
     private EditText inOut, inIn, outDot, inDot;
     private List<All> allList;
-    private AppCompatButton save;
+    private List<Goal> goalList;
+    private AppCompatButton save, close;
 
 
     @Nullable
@@ -49,12 +50,21 @@ public class BalanceDialogue extends DialogFragment {
         allList = AllPref.readAllFromPref(getActivity());
         balance = BalancePref.readBalanceFromPref(getActivity());
         save = view.findViewById(R.id.save_balance);
+        close = view.findViewById(R.id.close_balance);
+        goalList = GoalPref.readGoalFromPref(getActivity());
         if(allList == null){
             allList = new ArrayList<>();
         }
         if(balance == null){
             balance = 0.0;
         }
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
 
 
         save.setOnClickListener(new View.OnClickListener(){
@@ -84,15 +94,21 @@ public class BalanceDialogue extends DialogFragment {
                     Double amountChange = Double.parseDouble(strIn) - Double.parseDouble(strOut);
                     Double amount = Math.round(amountChange * 100.0) / 100.0;
                     balance += amount;
+                    if(goalList != null){
+                        for(int i = 0; i < goalList.size(); i++){
+                            goalList.get(i).setBal("$"+balance);
+                        }
+                        GoalPref.writeGoalInPref(getContext(),goalList);
+                    }
                     if(amount == 0){
                         getDialog().dismiss();
                     }
                     if(amount > 0){
-                        allList.add(0,new All("Balance Change",date,"+$" + amount));
+                        allList.add(0,new All("Balance Change",date,"+$" + amount,"balance"));
                     }
                     else{
                         amount = Math.abs(amount);
-                        allList.add(0,new All("Balance Change",date,"-$" + amount));
+                        allList.add(0,new All("Balance Change",date,"-$" + amount, "balance"));
                     }
                     BalancePref.writeBalanceInPref(getContext(),balance);
                     AllPref.writeAllInPref(getContext(),allList);

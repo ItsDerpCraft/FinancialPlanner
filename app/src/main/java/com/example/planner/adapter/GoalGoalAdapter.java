@@ -47,7 +47,7 @@ public class GoalGoalAdapter extends RecyclerView.Adapter<GoalGoalAdapter.GoalVi
         TextView purchaseName,purchaseAmount,bal;
         public GoalViewHolder(@NonNull View itemView) {
             super(itemView);
-            purchaseName = itemView.findViewById(R.id.goalName);
+            purchaseName = itemView.findViewById(R.id.goal_name);
             purchaseAmount = itemView.findViewById(R.id.goalCost);
             bal = itemView.findViewById(R.id.goalBal);
 

@@ -20,23 +20,22 @@
             android:layout_height="match_parent">
 
 
-
-                <EditText
-                    android:id="@+id/input_go_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="120dp"
-                    android:layout_marginEnd="110dp"
-                    android:layout_marginRight="110dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginStart="70dp"
-                    android:hint="Price"
-                    android:gravity="center"
-                    android:digits="0123456789."
-                    android:singleLine="true"
-                    android:textColorHint="@color/white"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"/>
+            <EditText
+                android:id="@+id/input_go_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginRight="110dp"
+                android:digits="0123456789"
+                android:gravity="left"
+                android:hint="$"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/input_go_dot"
@@ -46,7 +45,7 @@
                 android:layout_marginLeft="70dp"
                 android:layout_marginStart="280dp"
                 android:hint=" 00 "
-                android:digits="0123456789."
+                android:digits="0123456789"
                 android:singleLine="true"
                 android:maxLength="2"
                 android:textColorHint="@color/white"
@@ -94,7 +93,19 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/round_toggle_button3"
-                android:text="  Save   "
+                android:text="  Save  "
+                android:textColor="@color/white"
+                android:textSize="40sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/close_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/round_toggle_button3"
+                android:text="Close"
                 android:textColor="@color/white"
                 android:textSize="40sp" />
 

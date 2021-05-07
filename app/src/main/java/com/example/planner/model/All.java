@@ -4,10 +4,12 @@ public class All {
     private String name;
     private String date;
     private String amount;
-    public All(String name, String date, String amount){
+    private String type;
+    public All(String name, String date, String amount, String type){
         this.name = name;
         this.date = date;
         this.amount = amount;
+        this.type = type;
     }
 
     public String getAllName() {
@@ -19,6 +21,10 @@ public class All {
     public String getAllAmount() {
         return amount;
     }
+    public String getType() {
+        return type;
+    }
+
     public void setAllName(String name) {
         this.name = name;
     }
@@ -27,5 +33,8 @@ public class All {
     }
     public void setAllAmount(String amount) {
         this.amount = amount;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -17,10 +17,13 @@ import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.planner.data.AllPref;
+import com.example.planner.data.BalancePref;
+import com.example.planner.data.GoalPref;
 import com.example.planner.data.IncomePref;
 import com.example.planner.data.PurchasePref;
 import com.example.planner.data.SubscriptionPref;
 import com.example.planner.model.All;
+import com.example.planner.model.Goal;
 import com.example.planner.model.Income;
 import com.example.planner.model.Purchases;
 import com.example.planner.model.Subscriptions;
@@ -31,10 +34,12 @@ import java.util.List;
 public class IncomeDialogue extends DialogFragment {
     private static final String TAG = "IncomeDialogue";
     private EditText inName, inAmount, inDate, inMonth, inYear,inPoint;
-    AppCompatButton save, weekly, monthly, annual;
+    AppCompatButton save, weekly, monthly, annual, close;
     private List<Income> incomeList;
     private List<All> allList;
+    private List<Goal> goalList;
     private String type;
+    private Double balance;
 
 
     @Nullable
@@ -54,8 +59,14 @@ public class IncomeDialogue extends DialogFragment {
         monthly = view.findViewById(R.id.income_monthly);
         annual = view.findViewById(R.id.income_annual);
         allList = AllPref.readAllFromPref(getActivity());
+        goalList = GoalPref.readGoalFromPref(getActivity());
         incomeList = IncomePref.readIncomeFromPref(getActivity());
+        balance = BalancePref.readBalanceFromPref(getActivity());
+        close = view.findViewById(R.id.close_income);
         type = "Monthly";
+        if(balance == null){
+            balance = 0.0;
+        }
         if(incomeList == null){
             incomeList = new ArrayList<>();
         }
@@ -82,6 +93,13 @@ public class IncomeDialogue extends DialogFragment {
             }
         });
 
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
+
         save.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -96,10 +114,18 @@ public class IncomeDialogue extends DialogFragment {
                     point = "00";
                 }
                 if(!name.equals("")&&!amount.equals("")&&!date.equals("")&&!month.equals("")&&!year.equals("")){
+                    balance += Double.parseDouble(amount + "." + point);
+                    if(goalList != null){
+                        for(int i = 0; i < goalList.size(); i++){
+                            goalList.get(i).setBal("$"+balance);
+                        }
+                        GoalPref.writeGoalInPref(getContext(),goalList);
+                    }
                     incomeList.add(0, new Income(name, date + "/" + month + "/" + year, amount + "." + point, type));
-                    allList.add(0, new All(name, date + "/" + month + "/" + year, "+$" + amount + "." + point));
+                    allList.add(0, new All(name, date + "/" + month + "/" + year, "+$" + amount + "." + point,"income"));
                     AllPref.writeAllInPref(getContext(),allList);
                     IncomePref.writeIncomeInPref(getContext(),incomeList);
+                    BalancePref.writeBalanceInPref(getContext(),balance);
                 }
                 getDialog().dismiss();
             }

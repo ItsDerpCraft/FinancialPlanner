@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="300dp"
     android:layout_marginTop="20dp"
@@ -24,7 +28,7 @@
             android:textSize="35sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/add_goal"
+            android:id="@+id/empty_add_goal"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="150dp"
@@ -37,13 +41,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/add_goal"
+            android:layout_below="@+id/empty_add_goal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="tap here to add one! "
             android:textColor="#BDBDBD"
             android:textSize="20sp" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/close_empty_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/round_toggle_button3"
+            android:text="Close"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
 
     </RelativeLayout>
@@ -52,3 +66,4 @@
 
 
 </androidx.cardview.widget.CardView>
+</RelativeLayout>

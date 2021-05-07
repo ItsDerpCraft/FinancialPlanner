@@ -31,7 +31,7 @@ public class GoalDialogue extends DialogFragment {
     private String balance;
     private EditText inName, inAmount, inDot;
     private List<Goal> goalList;
-    private AppCompatButton save;
+    private AppCompatButton save,close;
 
 
     @Nullable
@@ -46,12 +46,20 @@ public class GoalDialogue extends DialogFragment {
         goalList = GoalPref.readGoalFromPref(getActivity());
         balance = "" + BalancePref.readBalanceFromPref(getActivity());
         save = view.findViewById(R.id.save_goal);
+        close = view.findViewById(R.id.close_goal);
         if(goalList == null){
             goalList = new ArrayList<>();
         }
         if(balance == null){
             balance = "0.0";
         }
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
 
 
         save.setOnClickListener(new View.OnClickListener(){
@@ -65,7 +73,7 @@ public class GoalDialogue extends DialogFragment {
                     dot = "00";
                 }
                 if(!name.equals("")&&!amount.equals("")){
-                    goalList.add(0, new Goal(name,amount,balance));
+                    goalList.add(0, new Goal(name,amount + "." + dot,balance));
                     GoalPref.writeGoalInPref(getContext(),goalList);
                 }
                 getDialog().dismiss();

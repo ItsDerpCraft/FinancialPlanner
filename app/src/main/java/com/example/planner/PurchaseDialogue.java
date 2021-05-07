@@ -19,9 +19,12 @@ import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.planner.data.AllPref;
+import com.example.planner.data.BalancePref;
+import com.example.planner.data.GoalPref;
 import com.example.planner.data.PurchasePref;
 import com.example.planner.data.SubscriptionPref;
 import com.example.planner.model.All;
+import com.example.planner.model.Goal;
 import com.example.planner.model.Purchases;
 import com.example.planner.model.Subscriptions;
 
@@ -32,10 +35,12 @@ public class PurchaseDialogue extends DialogFragment {
     private static final String TAG = "PurchaseDialogue";
     private EditText inName, inAmount, inDate, inMonth, inYear,inPoint;
     AppCompatToggleButton isOne;
-    AppCompatButton save;
+    AppCompatButton save, close;
+    private Double balance;
     private List<Purchases> purchasesList;
     private List<Subscriptions> subscriptionsList;
     private List<All> allList;
+    private List<Goal> goalList;
 
 
     @Nullable
@@ -52,9 +57,15 @@ public class PurchaseDialogue extends DialogFragment {
         save = view.findViewById(R.id.save_one_payment);
         inPoint = view.findViewById(R.id.input_dot);
         isOne = view.findViewById(R.id.purchase_type);
+        close = view.findViewById(R.id.close_purchase);
         purchasesList = PurchasePref.readPurchasesFromPref(getActivity());
         subscriptionsList = SubscriptionPref.readSubscriptionFromPref(getActivity());
         allList = AllPref.readAllFromPref(getActivity());
+        balance = BalancePref.readBalanceFromPref(getActivity());
+        goalList = GoalPref.readGoalFromPref(getActivity());
+        if(balance == null){
+            balance = 0.0;
+        }
         if(purchasesList == null){
             purchasesList = new ArrayList<>();
         }
@@ -64,6 +75,13 @@ public class PurchaseDialogue extends DialogFragment {
         if(allList == null){
             allList = new ArrayList<>();
         }
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
+            }
+        });
 
         save.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -80,23 +98,27 @@ public class PurchaseDialogue extends DialogFragment {
                     point = "00";
                 }
                 if(!name.equals("")&&!amount.equals("")&&!date.equals("")&&!month.equals("")&&!year.equals("")){
+                    balance -= Double.parseDouble(amount + "." + point);
+                    if(goalList != null){
+                        for(int i = 0; i < goalList.size(); i++){
+                            goalList.get(i).setBal("$"+balance);
+                        }
+                        GoalPref.writeGoalInPref(getContext(),goalList);
+                    }
                     if(isNotOneTime){
                         subscriptionsList.add(0, new Subscriptions(name, date + "/" + month + "/" + year, amount + "." + point));
+                        allList.add(0, new All(name, date + "/" + month + "/" + year, "-$" + amount + "." + point, "subscription"));
                         SubscriptionPref.writeSubscriptionInPref(getContext(),subscriptionsList);
                     }
                     else {
                         purchasesList.add(0, new Purchases(name, date + "/" + month + "/" + year, amount + "." + point));
+                        allList.add(0, new All(name, date + "/" + month + "/" + year, "-$" + amount + "." + point,"purchase"));
                         PurchasePref.writePurchasesInPref(getContext(), purchasesList);
                     }
-                    allList.add(0, new All(name, date + "/" + month + "/" + year, "-$" + amount + "." + point));
                     AllPref.writeAllInPref(getContext(),allList);
+                    BalancePref.writeBalanceInPref(getContext(),balance);
                 }
-                /*subscriptionsList = new ArrayList<>();
-                allList = new ArrayList<>();
-                purchasesList = new ArrayList<>();
-                AllPref.writeAllInPref(getContext(),allList);
-                PurchasePref.writePurchasesInPref(getContext(),purchasesList);
-                SubscriptionPref.writeSubscriptionInPref(getContext(),subscriptionsList);*/
+
                 getDialog().dismiss();
             }
 
