@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:backgroundTint="#00FFFFFF"
+    android:layout_height="wrap_content">
+<androidx.cardview.widget.CardView
+    app:cardBackgroundColor="#BB86FF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="25dp"
+    android:layout_marginBottom="25dp"
+    android:layout_marginStart="25dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginRight="25dp"
+    app:cardCornerRadius="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Name"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_purchase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Name"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Amount"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="130dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="$"
+                android:digits="0123456789"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:text="."
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="270dp"
+            android:layout_marginLeft="270dp" />
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="290dp"
+            app:cardCornerRadius="15dp">
+            <EditText
+                android:id="@+id/input_dot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="00"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:autofillHints="00"
+                android:gravity="left"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Date"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="260dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="390dp"
+            android:text="Purchase Type"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+
+
+        <androidx.appcompat.widget.AppCompatToggleButton
+            android:id="@+id/purchase_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/round_toggle_button"
+            android:textColor="@color/black"
+            android:textOff="    One Time    \n  Payment  "
+            android:textOn="  Subscription  \n  Payment  "
+            android:textSize="25sp" />
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="55dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="dd"
+                android:digits="0123456789"
+                android:singleLine="true"
+                android:maxLength="2"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="/"
+            android:textSize="35sp"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginLeft="65dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_month"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="mm"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="/"
+            android:textSize="35sp"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"/>
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="170dp"
+            android:layout_marginLeft="80dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_year"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="yyyy"
+                android:digits="0123456789"
+                android:maxLength="4"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_one_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="535dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/round_toggle_button2"
+            android:text="  Save   "
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    app:cardBackgroundColor="#BB86FF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="25dp"
+    android:layout_marginBottom="25dp"
+    android:layout_marginStart="25dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginRight="25dp"
+    app:cardCornerRadius="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deposit"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="$"
+                android:digits="0123456789"
+                android:singleLine="true"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="."
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="270dp"
+            android:layout_marginLeft="270dp" />
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="290dp"
+            app:cardCornerRadius="15dp">
+            <EditText
+                android:id="@+id/input_deposit_dot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="00"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:autofillHints="00"
+                android:gravity="left"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:text="."
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="270dp"
+            android:layout_marginLeft="270dp" />
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="290dp"
+            app:cardCornerRadius="15dp">
+            <EditText
+                android:id="@+id/input_in_."
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="00"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:autofillHints="00"
+                android:gravity="left"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="130dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/input_remove"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="35sp"
+                android:singleLine="true"
+                android:digits="0123456789"
+                android:textColorHint="@color/black"
+                android:gravity="left"
+                android:hint="$"/>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:text="."
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="270dp"
+            android:layout_marginLeft="270dp" />
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#E7C9FF"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginStart="290dp"
+            android:layout_marginLeft="290dp"
+            app:cardCornerRadius="15dp">
+            <EditText
+                android:id="@+id/input_remove_dot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="00"
+                android:digits="0123456789"
+                android:maxLength="2"
+                android:singleLine="true"
+                android:autofillHints="00"
+                android:gravity="left"
+                android:textColorHint="@color/black"
+                android:textSize="35sp" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="535dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/round_toggle_button2"
+            android:text="  Save   "
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+</RelativeLayout>

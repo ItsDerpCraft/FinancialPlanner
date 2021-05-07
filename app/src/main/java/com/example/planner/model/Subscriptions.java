@@ -1,31 +1,31 @@
 package com.example.planner.model;
 
-public class Purchases {
+public class Subscriptions {
     private String name;
     private String date;
     private String amount;
-    public Purchases(String name, String date, String amount){
+    public Subscriptions(String name, String date, String amount){
         this.name = name;
         this.date = date;
         this.amount = amount;
     }
 
-    public String getName() {
+    public String getSubName() {
         return name;
     }
-    public String getDate() {
+    public String getSubDate() {
         return date;
     }
-    public String getAmount() {
+    public String getSubAmount() {
         return "-$" + amount;
     }
-    public void setName(String name) {
+    public void setSubName(String name) {
         this.name = name;
     }
-    public void setDate(String date) {
+    public void setSubDate(String date) {
         this.date = date;
     }
-    public void setAmount(String amount) {
+    public void setSubAmount(String amount) {
         this.amount = amount;
     }
 }

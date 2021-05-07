@@ -28,40 +28,52 @@
         app:cardCornerRadius="15dp"
         android:layout_alignParentBottom="true">
 
-        <androidx.appcompat.widget.AppCompatToggleButton
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/all_toggle"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="All"
+            android:textSize="10sp"
+            android:background="@drawable/round_toggle_button"/>
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/payment_toggle"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_width="110dp"
-            android:layout_height="75dp"
-            android:textOff="One Time \n Payments"
-            android:textOn="One Time \n Payments"
+            android:layout_marginLeft="105dp"
+            android:layout_marginStart="105dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:text="One Time \n Payments"
+            android:textSize="10sp"
             android:background="@drawable/round_toggle_button"/>
 
-        <androidx.appcompat.widget.AppCompatToggleButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/subscription_toggle"
-            android:layout_width="110dp"
-            android:layout_height="75dp"
-            android:layout_marginLeft="135dp"
-            android:layout_marginStart="135dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="195dp"
+            android:layout_marginStart="195dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textOff="Subscription \n Payments"
-            android:textOn="Subscription \n Payments"
+            android:text="Subscription \n Payments"
+            android:textSize="10sp"
             android:background="@drawable/round_toggle_button"/>
 
-        <androidx.appcompat.widget.AppCompatToggleButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/income_toggle"
-            android:layout_width="110dp"
-            android:layout_height="75dp"
-            android:layout_marginLeft="260dp"
-            android:layout_marginStart="260dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginStart="285dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textOff="Income"
-            android:textOn="Income"
+            android:text="Income"
+            android:textSize="10sp"
             android:background="@drawable/round_toggle_button"/>
 
 
