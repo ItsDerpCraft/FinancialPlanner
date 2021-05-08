@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.planner.R;
 import com.example.planner.model.All;
-import com.example.planner.model.Subscriptions;
 
 import java.util.List;
 
