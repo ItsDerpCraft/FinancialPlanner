@@ -1,5 +1,6 @@
 package com.example.planner;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.example.planner.adapter.GoalGoalAdapter;
 import com.example.planner.data.AllPref;
 import com.example.planner.data.BalancePref;
 import com.example.planner.data.GoalPref;
+import com.example.planner.data.HighPref;
 import com.example.planner.model.All;
 import com.example.planner.model.Goal;
 import com.example.planner.model.Income;
@@ -31,10 +34,11 @@ import java.util.Date;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    private TextView balance, monthSpend,monthSpent,monthIn,monthSave;
-    private Double savedBalance, averageSpent, income, saving, spent;
+    private TextView balance, monthSpend,monthSpent,monthIn,monthSave, current, status, save, highSave;
+    private Double savedBalance, averageSpent, income, saving, spent, highest, times;
     private int curCount;
     private String date;
+    private CardView color;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class HomeFragment extends Fragment {
         List<Goal> goalList = GoalPref.readGoalFromPref(getActivity());
         List<All>  allList = AllPref.readAllFromPref(getActivity());
         savedBalance = BalancePref.readBalanceFromPref(getActivity());
+        highest = HighPref.readBalanceFromPref(getActivity());
 
         if(goalList == null){
             goalList = new ArrayList<>();
@@ -52,12 +57,20 @@ public class HomeFragment extends Fragment {
         if(savedBalance == null){
             savedBalance = 0.0;
         }
+        if(highest == null){
+            highest = 0.0;
+        }
 
         balance = view.findViewById(R.id.home_balance);
         monthSpend = view.findViewById(R.id.home_month_spend);
         monthSpent = view.findViewById(R.id.home_month_spent);
         monthIn = view.findViewById(R.id.home_month_income);
         monthSave = view.findViewById(R.id.home_month_saving);
+        current = view.findViewById(R.id.saved);
+        status = view.findViewById(R.id.status);
+        save = view.findViewById(R.id.current);
+        highSave = view.findViewById(R.id.highest);
+        color = view.findViewById(R.id.color);
         date = getDate();
         curCount = 0;
         income = 0.0;
@@ -75,6 +88,10 @@ public class HomeFragment extends Fragment {
         }
 
         saving = income - spent;
+        if(saving > highest){
+            highest = saving;
+            HighPref.writeBalanceInPref(getContext(),highest);
+        }
         averageSpent = spent/curCount;
         averageSpent =  Math.round(averageSpent * 100.0) / 100.0;
 
@@ -83,12 +100,31 @@ public class HomeFragment extends Fragment {
         monthSpend.setText("$" + averageSpent);
         monthSpent.setText("$" + spent);
         monthIn.setText("$" + income);
+        highSave.setText("+$" + highest);
         if(saving >= 0){
+            times = income/spent;
+            if(spent == 0.0){
+                times = 0.0;
+            }
+            times = Math.round(times * 10.0)/10.0;
+            color.setCardBackgroundColor(Color.parseColor("#638E67"));
+            current.setText("You saved "+times+" times more than what you spent");
+            status.setText("Good Job!");
             monthSave.setText("+$" + saving);
+            save.setText("+$" + saving);
         }
         else{
             saving *= -1;
+            times = spent/income;
+            if(income == 0.0){
+                times = 0.0;
+            }
+            times = Math.round(times * 10) / 10.0;
+            color.setCardBackgroundColor(Color.parseColor("#E82F2F"));
+            current.setText("You spent "+times+" times more than what you saved");
+            status.setText("Try Harder!");
             monthSave.setText("-$" + saving);
+            save.setText("-$" + saving);
         }
 
 

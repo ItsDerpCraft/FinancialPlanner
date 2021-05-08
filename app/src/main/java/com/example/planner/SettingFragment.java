@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.planner.data.AllPref;
 import com.example.planner.data.BalancePref;
 import com.example.planner.data.GoalPref;
+import com.example.planner.data.HighPref;
 import com.example.planner.data.IncomePref;
 import com.example.planner.data.PurchasePref;
 import com.example.planner.data.SubscriptionPref;
@@ -54,6 +55,7 @@ public class SettingFragment extends Fragment {
                 GoalPref.writeGoalInPref(getContext(),goalList);
                 IncomePref.writeIncomeInPref(getContext(),incomeList);
                 BalancePref.writeBalanceInPref(getContext(),0.0);
+                HighPref.writeBalanceInPref(getContext(),0.0);
             }
         });
         purchase.setOnClickListener(new View.OnClickListener() {
